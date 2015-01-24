@@ -1,13 +1,18 @@
 'use strict';
 
 var async = require('async');
-
+var transform = require('vinyl-transform');
+var path = require('path');
+var fs = require('fs');
+var header = require('gulp-header');
 
 module.exports = function pdGulpBaseTask(options) {
 
 
 	function Task(input) {
 		var that = this;
+
+		this.helper = helper;
 
 		this.jobsConfigs = [];
 		this.options = {};
@@ -47,5 +52,27 @@ module.exports = function pdGulpBaseTask(options) {
 
 
 	return Task.create(options);
+
+};
+
+
+
+
+
+var helper = {
+
+	useOnStream: function(fn, stream) {
+		return stream.pipe( transform(function(filename) {
+			return fn.apply(stream, [stream]);
+		}) );
+	},
+
+	banner: function(template) {
+
+		return header(template, {
+			pkg: JSON.parse( fs.readFileSync('package.json', 'utf8') ),
+			date: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
+		});
+	}
 
 };
