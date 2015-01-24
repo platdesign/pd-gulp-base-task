@@ -1,0 +1,9 @@
+{
+  "name": "pd-gulp-base-task",
+  "description": "pd-gulp-base-task",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "^0.9.0"
+  },
+  "repository": ""
+}
