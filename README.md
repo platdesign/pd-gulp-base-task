@@ -10,7 +10,9 @@
 	var baseTask = require('pd-gulp-base-task');
 	
 	module.exports = baseTask(function(){
-		this.worker(function(job, cb){
+		
+		// Create a compile function
+		this.compile(function(job, cb){
 			
 			this.gulp.src( job.config.src )
 			.pipe( this.gulp.dest( job.config.dest ) )
@@ -18,8 +20,9 @@
 			
 		});
 		
-		this.appendTask('default', {
-			
+		
+		this.appendTask('watch', {
+			watch:true
 		});
 	});
 
