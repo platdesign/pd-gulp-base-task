@@ -4,7 +4,11 @@
   "version": "0.0.1",
   "dependencies": {
     "async": "^0.9.0",
+    "colors": "^1.0.3",
+    "extend": "^2.0.0",
     "gulp-header": "^1.2.2",
+    "gulp-util": "^3.0.2",
+    "gulp-watch": "^4.1.0",
     "vinyl-transform": "^1.0.0"
   },
   "repository": ""
