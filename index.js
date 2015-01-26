@@ -22,7 +22,7 @@ var baseTask = function(pluginName, configFn) {
 		this._jobInitializator = fn;
 	};
 
-	Klasse.prototype.worker = function(worker) {
+	Klasse.prototype.compile = function(worker) {
 		this._worker = worker;
 	};
 
