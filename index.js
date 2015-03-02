@@ -6,7 +6,7 @@ var gutil = require('gulp-util');
 var async = require('async');
 var watch = require('gulp-watch');
 
-var baseTask = function(pluginName, configFn) {
+var taskGenerator = function taskGenerator(pluginName, configFn) {
 
 	var Klasse = function() {
 
@@ -173,8 +173,8 @@ var baseTask = function(pluginName, configFn) {
 	Klasse.prototype.plugin = function(name, opts) {
 		opts = opts || {};
 
-		if(baseTask.plugin[name]) {
-			return baseTask.plugin[name].apply(this, [opts]) || gutil.noop();
+		if(taskGenerator.plugin[name]) {
+			return taskGenerator.plugin[name].apply(this, [opts]) || gutil.noop();
 		}
 
 	};
@@ -247,13 +247,12 @@ var baseTask = function(pluginName, configFn) {
 
 		return instance.publicApi();
 	};
-
 };
 
 
-baseTask.plugin = {};
+taskGenerator.plugin = {};
 
-baseTask.plugin.banner = require('./lib/plugins/banner.js');
+taskGenerator.plugin.banner = require('./lib/plugins/banner.js');
 
 
-module.exports = baseTask;
+module.exports = taskGenerator;
