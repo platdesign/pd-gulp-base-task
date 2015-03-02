@@ -4,7 +4,7 @@ Generates a pd-gulp-task-generator.
 
 ##Install
 
-	npm install platdesign/pd-gulp-base-task --save
+	npm install --save pd-gulp-task-generator-generator
 
 ##Use
 
