@@ -2,40 +2,42 @@
 
 Generates a pd-gulp-task-generator.
 
-##Install
+## Install
 
 	npm install --save pd-gulp-task-generator-generator
 
-##Use
+## Use
 
-
-	var baseTask = require('pd-gulp-base-task');
+```javascript
+var createGenerator = require('pd-gulp-task-generator-generator');
 	
-	module.exports = baseTask(function(){
+module.exports = createGenerator('copy', function(){
 		
-		// Create a compile function
-		this.compile(function(job, cb){
+	// Create a compile function
+	this.compile(function(job, cb){
 			
-			this.gulp.src( job.config.src )
-			.pipe( this.gulp.dest( job.config.dest ) )
-			.on('end', cb);
-			
-		});
+		this.gulp.src( job.config.src )
+		.pipe( this.gulp.dest( job.config.dest ) )
+		.on('end', cb);
 		
-		
-		this.appendTask('watch', {
-			watch:true
-		});
 	});
+		
+		
+	this.appendTask('watch', {
+		watch:true
+	});
+	
+});
+```
 
-##Methods
+
+
+## Methods
 
 - `watchStarter(closure)` Create custom watch-handler. (e.g. for browserify/watchify or to add livereload)
 - `init(closure)` Create custom job-initializer, (e.g. for browserify/watchify)
 - `compile(closure)` Create a function which is called on compile.
 - `appendTask(object)` Creates/Appends a gulp Task with the new Task and some default config. (e.g. for watch/uglify/etc)
-
-
 
 
 
