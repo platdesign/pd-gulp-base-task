@@ -1,8 +1,8 @@
 {
   "name": "pd-gulp-task-generator-generator",
   "description": "Helps to generate a pd-gulp-task-generator",
-  "author":"Christian Blaschke <mail@platdesign.de>",
-  "version": "0.0.2",
+  "author": "Christian Blaschke <mail@platdesign.de>",
+  "version": "0.1.0",
   "dependencies": {
     "async": "^0.9.0",
     "colors": "^1.0.3",
