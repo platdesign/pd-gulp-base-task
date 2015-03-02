@@ -1,4 +1,6 @@
-#pd-gulp-base-task
+#pd-gulp-task-generator-generator
+
+Generates a pd-gulp-task-generator.
 
 ##Install
 
