@@ -106,6 +106,7 @@ var taskGenerator = function taskGenerator(pluginName, configFn) {
 						if(err) {
 							that.logError('Error in '.red+job.name.cyan, '✕'.red);
 							console.log('Message\n', err.message, '\n');
+							console.log(err.toString(), '\n');
 						} else {
 							that.log('Compiled '+job.name.cyan, '✔'.green);
 						}
